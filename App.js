@@ -10,9 +10,7 @@ export default function App() {
     const { height, width } = useWindowDimensions();
   return (
     <View style={styles.container}>
-      <h2>Move Options</h2>
       <SquareStyles boardWidth={width/2} />
-        <br />
       <StatusBar style="auto" />
     </View>
   );

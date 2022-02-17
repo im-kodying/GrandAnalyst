@@ -1,3 +1,5 @@
+// noinspection JSValidateTypes
+
 import { useRef, useState } from 'react';
 import Chess from 'chess.js';
 
