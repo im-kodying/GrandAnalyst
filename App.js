@@ -1,10 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import SquareStyles from "./components/SquareStyles";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <h2>Move Options</h2>
+      <SquareStyles boardWidth={1080} />
+        <br />
       <StatusBar style="auto" />
     </View>
   );
