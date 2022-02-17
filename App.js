@@ -6,7 +6,6 @@ import { useWindowDimensions } from 'react-native';
 
 export default function App() {
     const [chessboardSize, setChessboardSize] = useState(undefined);
-    const [selectedBoard, setSelectedBoard] = useState('PlayVsRandom');
     const { height, width } = useWindowDimensions();
   return (
     <View style={styles.container}>
