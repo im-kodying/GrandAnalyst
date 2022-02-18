@@ -1,25 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import SquareStyles from "./components/SquareStyles";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState, useEffect} from "react";
 import { useWindowDimensions } from 'react-native';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function App() {
     const [chessboardSize, setChessboardSize] = useState(undefined);
     const { height, width } = useWindowDimensions();
   return (
-    <View style={styles.container}>
-      <SquareStyles boardWidth={width/2} />
-      <StatusBar style="auto" />
-    </View>
+      <Container fluid>
+          <Row>
+              <Col>1 of 2</Col>
+              <Col>2 of 2</Col>
+          </Row>
+          <Row>
+              <Col>1 of 3</Col>
+              <Col>2 of 3</Col>
+              <Col>3 of 3</Col>
+          </Row>
+      </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
