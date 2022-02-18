@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, TextComponent, View} from 'react-native';
 import SquareStyles from "./components/SquareStyles";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState, useEffect} from "react";
@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Navbar from "react-bootstrap/Navbar";
-import Logo from "./assets/favicon.png"
+import Logo from "./assets/GA.svg"
 
 export default function App() {
     const [chessboardSize, setChessboardSize] = useState(undefined);
