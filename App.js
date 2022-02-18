@@ -7,17 +7,36 @@ import { useWindowDimensions } from 'react-native';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Navbar from "react-bootstrap/Navbar";
+import Logo from "./assets/favicon.png"
 
 export default function App() {
     const [chessboardSize, setChessboardSize] = useState(undefined);
     const { height, width } = useWindowDimensions();
+    //const [pgn, setPgn] = useState([]);
   return (
+      <>
+      <Navbar bg="dark" variant="dark" sticky={"top"}>
+          <Container>
+              <Navbar.Brand href="#home">
+                  <img
+                      alt=""
+                      src={Logo}
+                      width="30"
+                      height="30"
+                      className="d-inline-block align-top"
+                  />{' '}
+                  Grand Analyst
+              </Navbar.Brand>
+          </Container>
+      </Navbar>
       <Container fluid>
           <Row>
-              <Col>1 of 3</Col>
+              <Col></Col>
               <Col><SquareStyles/></Col>
-              <Col>3 of 3</Col>
+              <Col></Col>
           </Row>
       </Container>
+          </>
   );
 }

@@ -5,13 +5,15 @@ import Chess from 'chess.js';
 
 import { Chessboard } from 'react-chessboard';
 
-export default function SquareStyles({ boardWidth }) {
+export default function SquareStyles({ boardWidth, pgn, setPgn }) {
     const chessboardRef = useRef();
     const [game, setGame] = useState(new Chess());
 
     const [rightClickedSquares, setRightClickedSquares] = useState({});
     const [moveSquares, setMoveSquares] = useState({});
     const [optionSquares, setOptionSquares] = useState({});
+    const [color, setColor] = useState('white');
+    //const [pgn, setPgn] = useState([]);
 
     function safeGameMutate(modify) {
         setGame((g) => {
@@ -31,6 +33,11 @@ export default function SquareStyles({ boardWidth }) {
         setGame(gameCopy);
         // illegal move
         if (move === null) return false;
+        console.log(move)
+        /*let arr = pgn;
+        arr.push(move);
+        setPgn(arr);
+        */
         setMoveSquares({
             [sourceSquare]: { backgroundColor: 'rgba(255, 255, 0, 0.4)' },
             [targetSquare]: { backgroundColor: 'rgba(255, 255, 0, 0.4)' }
@@ -77,6 +84,15 @@ export default function SquareStyles({ boardWidth }) {
         setRightClickedSquares({});
     }
 
+    function flipColor() {
+        if(color === 'white'){
+            setColor('black');
+        }
+        else{
+            setColor('white');
+        }
+    }
+
     function onSquareRightClick(square) {
         const colour = 'rgba(0, 0, 255, 0.4)';
         setRightClickedSquares({
@@ -100,6 +116,7 @@ export default function SquareStyles({ boardWidth }) {
                 onMouseOutSquare={onMouseOutSquare}
                 onSquareClick={onSquareClick}
                 onSquareRightClick={onSquareRightClick}
+                boardOrientation={color}
                 onPieceDrop={onDrop}
                 customBoardStyle={{
                     borderRadius: '4px',
@@ -136,6 +153,19 @@ export default function SquareStyles({ boardWidth }) {
                 }}
             >
                 undo
+            </button>
+            <button
+                className="rc-button"
+                onClick={() => {
+                    if (color == 'white'){
+                        setColor('black');
+                    }
+                    else{
+                        setColor('white');
+                    }
+                }}
+            >
+                Flip Board
             </button>
         </div>
     );
