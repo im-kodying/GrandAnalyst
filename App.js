@@ -11,9 +11,10 @@ import Navbar from "react-bootstrap/Navbar";
 import Logo from "./assets/GA.svg"
 
 export default function App() {
-    const [chessboardSize, setChessboardSize] = useState(undefined);
-    const { height, width } = useWindowDimensions();
-    //const [pgn, setPgn] = useState([]);
+    const [pgn, setPgn] = useState([]);
+    function addPgn(move){
+        setPgn([...pgn, move]) //simple value
+    }
   return (
       <>
       <Navbar bg="dark" variant="dark" sticky={"top"}>
@@ -33,8 +34,8 @@ export default function App() {
       <Container fluid>
           <Row>
               <Col></Col>
-              <Col><SquareStyles/></Col>
-              <Col></Col>
+              <Col><SquareStyles pgn={pgn} addPgn={addPgn}/></Col>
+              <Col>{pgn}</Col>
           </Row>
       </Container>
           </>

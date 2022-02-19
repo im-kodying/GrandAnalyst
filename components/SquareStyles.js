@@ -5,7 +5,7 @@ import Chess from 'chess.js';
 
 import { Chessboard } from 'react-chessboard';
 
-export default function SquareStyles({ boardWidth, pgn, setPgn }) {
+export default function SquareStyles({boardWidth, pgn, addPgn}) {
     const chessboardRef = useRef();
     const [game, setGame] = useState(new Chess());
 
@@ -13,7 +13,6 @@ export default function SquareStyles({ boardWidth, pgn, setPgn }) {
     const [moveSquares, setMoveSquares] = useState({});
     const [optionSquares, setOptionSquares] = useState({});
     const [color, setColor] = useState('white');
-    //const [pgn, setPgn] = useState([]);
 
     function safeGameMutate(modify) {
         setGame((g) => {
@@ -34,10 +33,7 @@ export default function SquareStyles({ boardWidth, pgn, setPgn }) {
         // illegal move
         if (move === null) return false;
         console.log(move)
-        /*let arr = pgn;
-        arr.push(move);
-        setPgn(arr);
-        */
+        addPgn(move.san)
         setMoveSquares({
             [sourceSquare]: { backgroundColor: 'rgba(255, 255, 0, 0.4)' },
             [targetSquare]: { backgroundColor: 'rgba(255, 255, 0, 0.4)' }
