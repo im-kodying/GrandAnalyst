@@ -4,9 +4,9 @@
     "slug": "ga",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/GA.svg",
+    "icon": "./assets/GA.png",
     "splash": {
-      "image": "./assets/GA.svg",
+      "image": "./assets/GA.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
